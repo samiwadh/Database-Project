@@ -1,4 +1,4 @@
-![The San Juan Mountains are beautiful!](C:\Users\samiwadho\Downloads\Database.jpg "San Juan Mountains")
+<img src="Database.jpg" align="right" />
 
 # Database Projects
 [![GitHub last commit](https://img.shields.io/github/last-commit/samiwadh/Database-Project?color=%23f54242)](https://github.com/samiwadh/Database-Project)
