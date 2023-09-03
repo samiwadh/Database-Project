@@ -2,6 +2,8 @@
 
 # Database Projects
 [![GitHub last commit](https://img.shields.io/github/last-commit/samiwadh/Database-Project?color=%23f54242)](https://github.com/samiwadh/Database-Project)
+[![GitHub Release Date - Published_At](https://img.shields.io/github/release-date/samiwadh/Database-Project?color%3D%2523f54242)](https://github.com/samiwadh/Database-Project)
+
 ## About
 Repository of Database Projects This Readme File show the shortcut location of each project loctions with name on it.
 
