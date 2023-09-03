@@ -1,4 +1,5 @@
-![alt text](Database.jpg)
+![image](Users\samiwadho\Downloads.jpg)
+
 # Database Projects
 [![GitHub last commit](https://img.shields.io/github/last-commit/samiwadh/Database-Project?color=%23f54242)](https://github.com/samiwadh/Database-Project)
 ## About
