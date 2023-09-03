@@ -1,0 +1,77 @@
+
+
+Create table Passenger(Passenger_id int, P_name varchar2(50), P_surname varchar2(50),P_sex varchar2(5), P_Contact_no int ,Constraint Passenger_id_Pk primary key(Passenger_id));
+
+Create table Ticket(Ticket_id INT,T_price varchar2(15),Passenger_id INT, Infor_F_Departure varchar2(50),Infor_F_Arrival varchar2(100), Infor_F_Departure_date date ,Infor_F_Arrival_date date ,Constraint ticket_id_PK primary key(Ticket_id));
+
+Create table Aeroplane(Aeroplane_id int, A_name varchar2(100) NOT NULL,P_Model_no int NOT NULL,P_Manufacturer varchar2(100), A_Company_id int, Constraint Aeroplane_id_PK Primary key(Aeroplane_id));
+
+
+Create table FLIGHT(Flight_id INT , Ticket_id INT ,F_Departure varchar2(50) ,F_Arrival varchar2(50) ,F_Departure_date DATE ,F_Arrival_date DATE,aeroplane_id INT ,Constraint Flight_id_PK primary key(Flight_id));
+
+
+Create table Crew(Crew_id int,Flight_id int , C_name varchar2(50) ,C_surname varchar2(50) ,C_sex varchar2(50) ,C_Contact_no int ,C_Salary int , C_address varchar2(50) ,C_Desegination varchar2(50),C_PILOT_FLY_A varchar2(50)  ,Constraint Crew_id_PK primary key(Crew_id));
+
+
+Insert into Ticket(Ticket_id ,T_price ,Passenger_id ,  INFOR_F_DEPARTURE , INFOR_F_ARRIVAL ,  INFOR_F_DEPARTURE_DATE , INFOR_F_ARRIVAL_DATE )
+Values(00012,'50000',79210,'Karachi','Dubai',to_date('03/01/2020','dd/mm/yyyy'),to_date('03/01/2020','dd/mm/yyyy'));
+Values(00013,'50000',79211,'Karachi','Dubai',to_date('03/01/2020','dd/mm/yyyy'),to_date('03/01/2020','dd/mm/yyyy'));
+Values(00321,'150000',77443,'Dubai','Qatar',to_date('04/01/2020','dd/mm/yyyy'),to_date('05/01/2020','dd/mm/yyyy'));
+Values(01321,'200000',24444,'Dubai','Texis',to_date('05/01/2020','dd/mm/yyyy'),to_date('06/01/2020','dd/mm/yyyy'));
+Values(00123,'100000',25333,'Dubai','France',to_date('05/01/2020','dd/mm/yyyy'),to_date('06/01/2020','dd/mm/yyyy'));
+Values(03242,'35000',33211,'Lahore','Mumbay',to_date('07/01/2020','dd/mm/yyyy'),to_date('07/01/2020','dd/mm/yyyy'));
+Values(04321,'30000',42112,'Karachi','Dhaka',to_date('06/01/2020','dd/mm/yyyy'),to_date('06/01/2020','dd/mm/yyyy'));
+Values(03421,'90000',98989,'Dubai','Moscow',to_date('08/01/2020','dd/mm/yyyy'),to_date('08/01/2020','dd/mm/yyyy'));
+Values(03222,'30000',77666,'Islambad','Dubai',to_date('09/01/2020','dd/mm/yyyy'),to_date('09/01/2020','dd/mm/yyyy'));
+Values(00015,'50000',79213,'Karachi','Dubai',to_date('03/01/2020','dd/mm/yyyy'),to_date('03/01/2020','dd/mm/yyyy'));
+Values(02323,'39000',66644,'Lahore','New Delhi',to_date('06/01/2020','dd/mm/yyyy'),to_date('06/01/2020','dd/mm/yyyy'));
+Values(00014,'39000',79212,'Karachi','Dubai',to_date('03/01/2020','dd/mm/yyyy'),to_date('03/01/2020','dd/mm/yyyy'));
+
+Insert into passenger(passenger_id,p_name, p_surname, p_sex, p_contact_no )
+values(79210,'Abdul Rehman','Wachocho','M',0312234212 );
+values(79211,'Abdul Sami','Wadho','M',031242412 );
+values(79212,'kashif Hussain','Wachocho','M',0333234212 );
+values(79213,'Sabir Ali','Hakro','M',0345554323 );
+values(77443,'Safder Shah','Shah','M',0312325777);
+values(24444,'Zanib gul','khan','M',0317777888 );
+values(25333,'Abdulluah','Wadho','M',0305556696 );
+values(33211,'Abdul Ghaffer','kori','M',0333999944 );
+values(42112,'Abdul Ahad','Lashari','M',0315665656 );
+values(98989,'Nida sami','Rajpot','F',03166666655 );
+values(77666,'Kubra khan','Khan','F',0345666664 );
+values(66644,'Abdul Samed','shaikh','M',036455565 );
+
+
+Insert into aeroplane(Aeroplane_id ,A_Name ,p_Model_no,p_Manufacturer ,a_Company_id )
+values(980110,'Iqbal fly',302,'German',33412802);
+values(931110,'Big Fly',367,'Englind',5423337);
+values(912356,'Round Chick',321,'China',33421223);
+values(942154,'Arid Arrow',425,'American',34444402);
+values(932221,'Night fly',643,'American',34444402);
+values(924492,'Jinnah fly',123,'China',33421223);
+values(976544,'Capable Craft',970,'German',33412802);
+values(984322,'Red King',234,'China',33421223);
+values(943232,'Round Chick',302,'German',33412802);
+
+
+
+Insert into FLIGHT(Flight_id , Ticket_id,F_Departure  ,F_Arrival  ,F_Departure_date ,F_Arrival_date ,aeroplane_id)
+Values(570999,00012,'Karachi','Dubai',to_date('03/01/2020','dd/mm/yyyy'),to_date('03/01/2020','dd/mm/yyyy'),924492);
+Values(570999,00013,'Karachi','Dubai',to_date('03/01/2020','dd/mm/yyyy'),to_date('03/01/2020','dd/mm/yyyy'),924492);
+Values(570323,00321,'Dubai','Qatar',to_date('04/01/2020','dd/mm/yyyy'),to_date('05/01/2020','dd/mm/yyyy'),912356);
+Values(570523,01321,'Dubai','Texis',to_date('05/01/2020','dd/mm/yyyy'),to_date('06/01/2020','dd/mm/yyyy'),931110);
+Values(542339,00123,'Dubai','France',to_date('05/01/2020','dd/mm/yyyy'),to_date('06/01/2020','dd/mm/yyyy'),980110);
+Values(570999,03242,'Lahore','Mumbay',to_date('07/01/2020','dd/mm/yyyy'),to_date('07/01/2020','dd/mm/yyyy'),943232);
+Values(574233,04321,'Karachi','Dhaka',to_date('06/01/2020','dd/mm/yyyy'),to_date('06/01/2020','dd/mm/yyyy'),932221);
+Values(574329,03421,'Dubai','Moscow',to_date('08/01/2020','dd/mm/yyyy'),to_date('08/01/2020','dd/mm/yyyy'),980110);
+Values(572323,03222,'Islambad','Dubai',to_date('09/01/2020','dd/mm/yyyy'),to_date('09/01/2020','dd/mm/yyyy'),943232);
+Values(570999,00015,'Karachi','Dubai',to_date('03/01/2020','dd/mm/yyyy'),to_date('03/01/2020','dd/mm/yyyy'),924492);
+Values(53229,02323,'Lahore','New Delhi',to_date('06/01/2020','dd/mm/yyyy'),to_date('06/01/2020','dd/mm/yyyy'),932221);
+Values(570999,00014,'Karachi','Dubai',to_date('03/01/2020','dd/mm/yyyy'),to_date('03/01/2020','dd/mm/yyyy'),924492);
+	
+
+
+
+
+
+
