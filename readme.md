@@ -21,4 +21,4 @@ Repository of Database Projects This Readme File show the shortcut location of e
     -  I create this project on daily bases work so this project don't care the thesis files. this project only care backend and the UI 
 ### Third Project 
   - **[Hospital Management System (HMS)](https://github.com/samiwadh/Database-Project/tree/main/List%20of%20project/HOSPITAL%20Management%20System)**
-  - 
+    - I create two Diffenent Hospital Management System project. Which is in **HMS** Folder I put the Address of second project
