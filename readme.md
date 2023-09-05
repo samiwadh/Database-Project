@@ -17,5 +17,8 @@ Repository of Database Projects This Readme File show the shortcut location of e
       - Part One is based on Backend and thesis
       - Part Second care User Interface and thesis
 ### Second Project 
-  - **[CLINIC Management System (CMS)](https://github.com/samiwadh/Database-Project/tree/main/List%20of%20project/CLINIC%20Management%20System)**
+  - **[Clinic Management System (CMS)](https://github.com/samiwadh/Database-Project/tree/main/List%20of%20project/CLINIC%20Management%20System)**
     -  I create this project on daily bases work so this project don't care the thesis files. this project only care backend and the UI 
+### Third Project 
+  - **[Hospital Management System (HMS)](https://github.com/samiwadh/Database-Project/tree/main/List%20of%20project/HOSPITAL%20Management%20System)**
+  - 
