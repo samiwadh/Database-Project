@@ -1,0 +1,20 @@
+
+ 
+CREATE TABLE  "ROOM_CLASS" 
+   (	"CLASS_ID" NUMBER(6,0), 
+	"NAME" VARCHAR2(59), 
+	 CONSTRAINT "ROOM_CLASS_PK" PRIMARY KEY ("CLASS_ID") ENABLE
+   ) ;
+
+CREATE OR REPLACE TRIGGER  "BI_ROOM_CLASS" 
+  before insert on "ROOM_CLASS"               
+  for each row  
+begin   
+  if :NEW."CLASS_ID" is null then 
+    select "ROOM_CLASS_SEQ".nextval into :NEW."CLASS_ID" from dual; 
+  end if; 
+end; 
+
+/
+ALTER TRIGGER  "BI_ROOM_CLASS" ENABLE;
+

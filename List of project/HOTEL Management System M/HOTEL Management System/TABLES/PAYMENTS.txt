@@ -1,0 +1,44 @@
+
+Table 
+
+Data 
+
+Indexes 
+
+Model 
+
+Constraints 
+
+Grants 
+
+Statistics 
+
+UI Defaults 
+
+Triggers 
+
+Dependencies 
+
+SQL 
+
+ 
+CREATE TABLE  "PAYMENTS" 
+   (	"PAYMENT_ID" NUMBER(6,0), 
+	"CUSTOMER_ID" NUMBER(6,0), 
+	"PAYMENT_DATE" DATE, 
+	 CONSTRAINT "PAYMENTS_PK" PRIMARY KEY ("PAYMENT_ID") ENABLE
+   ) ;ALTER TABLE  "PAYMENTS" ADD CONSTRAINT "PAYMENTS_CON" FOREIGN KEY ("CUSTOMER_ID")
+	  REFERENCES  "CUSTOMER_INFORMATION" ("CUST_ID") ENABLE;
+
+CREATE OR REPLACE TRIGGER  "BI_PAYMENTS" 
+  before insert on "PAYMENTS"               
+  for each row  
+begin   
+  if :NEW."PAYMENT_ID" is null then 
+    select "PAYMENTS_SEQ".nextval into :NEW."PAYMENT_ID" from dual; 
+  end if; 
+end; 
+
+/
+ALTER TRIGGER  "BI_PAYMENTS" ENABLE;
+

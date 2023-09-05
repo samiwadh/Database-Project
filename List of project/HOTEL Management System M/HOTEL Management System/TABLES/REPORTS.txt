@@ -1,0 +1,19 @@
+CREATE TABLE  "HOTEL_REPORTS" 
+   (	"REPORT_ID" NUMBER(7,0), 
+	"TRANSACTION_ID" NUMBER(6,0), 
+	"INFORMATION" VARCHAR2(50), 
+	"R_DATE" DATE, 
+	 CONSTRAINT "HOTEL_REPORTS_PK" PRIMARY KEY ("REPORT_ID") ENABLE
+   ) ;
+
+CREATE OR REPLACE TRIGGER  "BI_HOTEL_REPORTS" 
+  before insert on "HOTEL_REPORTS"               
+  for each row  
+begin   
+  if :NEW."REPORT_ID" is null then 
+    select "HOTEL_REPORTS_SEQ".nextval into :NEW."REPORT_ID" from dual; 
+  end if; 
+end; 
+
+/
+ALTER TRIGGER  "BI_HOTEL_REPORTS" ENABLE;
