@@ -27,5 +27,5 @@ Repository of Database Projects This Readme File show the shortcut location of e
  - **[Hotel Management System (HMS)](https://github.com/samiwadh/Database-Project/tree/main/List%20of%20project/HOTEL%20Management%20System%20M)**
    - This
 ### Fifth Project
-- **[Railway Management Sysetm (RMS)](https://github.com/samiwadh/Database-Project/tree/main/List%20of%20project/RAILWAY%20PROJECT%20complete)**
-  - This project contain ERD , FORMS of User Interface (UI) , pictures and doc files of instructions  
+  - **[Railway Management Sysetm (RMS)](https://github.com/samiwadh/Database-Project/tree/main/List%20of%20project/RAILWAY%20PROJECT%20complete)**
+    - This project contain ERD , FORMS of User Interface (UI) , pictures and doc files of instructions  
