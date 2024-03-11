@@ -1,0 +1,88 @@
+create table account(user_id varchar2(50),user_password varchar2(50));
+insert into account(user_id,user_password)
+values('sabir ','wadho');
+------------------------------------------
+equipment
+ create table equipment(equ_id varchar2(50),product_type varchar2(50),service_id varchar2(50),constraint equ_id_pk primary key(equ_id));
+
+ALTER TABLE     equipment
+ADD CONSTRAINT equipment_service_fk 
+FOREIGN KEY(service_id) 
+REFERENCES equipment(EQU_ID);
+
+-----------------------------------------
+bill_voucher
+create table bill_voucher(serial_no varchar2(50),payment_method varchar2(30),
+    description varchar2(40),amount number(7), constraint serial_no_pk primary key(serial_no) );
+
+------------------------------------------------
+branch
+
+create table branch(branch_id varchar2(50),branch_city varchar2(50),branch_location varchar2(50),
+branch_contact varchar2(50), constraint branch_id_pk primary key(branch_id));
+
+
+
+-------------------------------------
+service
+
+create table service(service_id varchar2(50),service_type varchar2(50),service_charge number(7),
+constraint service_id_pk primary key(service_id));
+
+-------------------------
+customers
+
+create table customers(customer_id varchar2(50) not null,service_id varchar2(50) not null,
+appointment_id number(7) not null,appointment_date  date default systimestamp,
+constraint customer_id_pk primary key(customer_id));
+
+
+
+ALTER TABLE     customers
+ADD CONSTRAINT  customer_service_fk 
+FOREIGN KEY(service_id) 
+REFERENCES customers(customer_id);
+
+
+for seeing forgin key
+SELECT	constraint_name, column_name
+FROM	user_cons_columns;
+
+
+---------------------------
+
+create table Persons(
+    person_id varchar2(50) not null ,branch_id varchar2(50) not null,
+    first_name varchar2(50) not null , gender varchar2(7) not null ,
+    manager_id varchar2(50) , contact varchar2(15)) ,
+    user_id varchar2(50),user_password varchar2(14) ,
+    owner_name varchar2(50) ,customer_id varchar2(50),service_id varchar2(50),
+    equ_id varchar2(50),serial_no varchar2(50),
+constraint Person_id_fk primary key(person_id),
+CONSTRAINT Persons_branch_fk FOREIGN KEY (branch_id) REFERENCES branch(branch_id),
+CONSTRAINT Persons_customer_fk FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
+CONSTRAINT Persons_service_fk FOREIGN KEY (service_id) REFERENCES service(service_id),
+CONSTRAINT Persons_equipment_fk FOREIGN KEY (equ_id) REFERENCES equipment(equ_id),
+CONSTRAINT Persons_bill_voucher_fk FOREIGN KEY (serial_no) REFERENCES bill_voucher(serial_no));
+-----------------------OR--------------------------------------------------------------
+ALTER TABLE AHMED 
+ADD CHECK (GENDER='MALE,FEMALE');
+--------------------------------------------------------------------------------|
+1)CREATE TABLE----------------							|
+create table time(birth date);							|
+										|
+2)INSERT DATA ----------------							|
+insert into time								|
+values(to_date('1998/05/31:12:40:00AM', 'yyyy/mm/dd:hh:mi:ssam'));		|
+										|
+FOR DAY TO YEAR------------------						|
+3)select TO_CHAR(SYSDATE,'FMDD MONTH YYYY')					|
+from TIME;									|
+										|
+FOR  TIME ----------------------------						|
+4)Select to_char(birth,'HH24:MI:SS AM') from time;				|
+										|
+FOR BOTH DD TO YEAR AND TIME--------------------				|
+select to_char(sysdate, 'Dy DD-Mon-YYYY HH24:MI:SS') as "Current Time"		|
+from TIME;									|
+--------------------------------------------------------------------------------|

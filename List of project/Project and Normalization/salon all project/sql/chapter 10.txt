@@ -1,0 +1,14 @@
+1)alter  table emp
+modify (constraint my_emp_id_pk unique(id) );
+2)alter  table dept
+modify (constraint my_dept_id_pk unique(id) );
+	or 
+2)alter  table dept
+
+3)alter  table emp
+add constraint my_emp_dept_id_fk 
+foreign key (id)
+REFERENCES emp(id);
+
+4)select *
+from USER_CONSTRAINTS ;

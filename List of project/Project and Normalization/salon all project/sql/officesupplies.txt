@@ -1,0 +1,65 @@
+create table officeSupplies
+(
+productID varchar2(8)not null,
+productName varchar2(50)not null,
+productType varchar2(50)not null,
+productQuantity number(7)not null,
+productPrice number(10,3) not null,
+productSupplier varchar2(60)not null,
+constraint officeSupplies_productID_pk primary key (productID)
+);
+
+desc officeSupplies;
+
+insert into officeSupplies(productID,productName,ProductType,ProductQuantity,productprice,productSupplier)
+values ('P001','Ballpoint pen','Stationary',2000,30,'Raymonds');
+insert into officeSupplies values ('P002','Pointer      ','Stationary',3000,50,'Raymonds');
+insert into officeSupplies values ('P003','Paper        ','Stationary',5000,1000,'Stationary Bucket');
+insert into officeSupplies values ('P004','Stapler      ','Stationary',1300,200,'Stationary Bucket');
+insert into officeSupplies values ('P005','Notebook     ','Stationary',400,150,'Stationary Bucket');
+insert into officeSupplies values ('P006','Pencil       ','Stationary',550,20,'Stationary Bucket');
+insert into officeSupplies values ('P007','Chair        ','Furniture',3000,5000,'Brooks Furniture');
+insert into officeSupplies values ('P008','Desk         ','Furniture',900,15000,'Brooks Furniture');
+insert into officeSupplies values ('P009','Filling cabinet','Furniture',1200,10000,'Brooks Furniture');
+insert into officeSupplies values ('P010','Copier      ','Electronics',800,25000,'Decon Electronics');
+insert into officeSupplies values ('P011','Scanner       ','Electronics',450,80000,'Decon Electronics');
+insert into officeSupplies values ('P012','Printer       ','Electronics',750,12000,'Decon Electronics');
+insert into officeSupplies values ('P013','Moniter       ','Electronics',3000,14000,'Decon Electronics');
+insert into officeSupplies values ('P014','Laptop        ','Electronics',500,70000,'Jaspers');
+insert into officeSupplies values ('P015','Desktop       ','Electronics',400,50000,'Jaspers');
+insert into officeSupplies values ('P016','Barcode Reader','Electronics',400,2000,'Jaspers');
+insert into officeSupplies values ('P017','Air Conditioner','Electrical',300,80000,'Optima');
+insert into officeSupplies values ('P018','Ceiling Fan    ','Electrical',800,7500,'Optima');
+insert into officeSupplies values ('P019','Desk Fan       ','Electrical',350,6000,'Optima');
+insert into officeSupplies values ('P020','Socket Extender','Electrical',1000,1800,'Optima');
+
+select * from officesupplies;
+
+//
+select producttype
+from officesupplies
+where producttype ='Furniture';
+
+
+select productsupplier
+from officesupplies
+where productsupplier ='Jaspers';
+
+select productsupplier
+from officesupplies
+where producttype in( 'Electronics','Electrical');
+
+select producttype
+from officesupplies
+where producttype in  ('Stationary')
+and productprice<1000;
+
+select productsupplier
+from officesupplies
+where productprice>5000;
+
+select productname
+from officesupplies
+where productprice between 1000 and 25000;
+
+

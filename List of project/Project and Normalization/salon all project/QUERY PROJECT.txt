@@ -1,0 +1,20 @@
+TIME 
+--------------------------------------------------------------------------------|
+1)CREATE TABLE----------------							|
+create table time(birth date);							|
+										|
+2)INSERT DATA ----------------							|___
+insert into time values(to_date('1998/05/31:12:40:00AM', 'yyyy/mm/dd:hh:mi:ssam'));|
+										|__|
+FOR DAY TO YEAR------------------						|
+3)select TO_CHAR(SYSDATE,'FMDD MONTH YYYY')					|
+from TIME;									|
+										|
+FOR  TIME ----------------------------						|
+4)Select to_char(birth,'HH24:MI:SS AM') from time;				|
+										|
+FOR BOTH DD TO YEAR AND TIME--------------------				|
+select to_char(sysdate, 'Dy DD-Mon-YYYY HH24:MI:SS') as "Current Time"		|
+from TIME;									|
+--------------------------------------------------------------------------------|
+CREATE TABLE TIME(BIRTH  date default systimestamp);

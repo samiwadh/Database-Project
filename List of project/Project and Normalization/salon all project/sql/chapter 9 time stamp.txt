@@ -1,0 +1,49 @@
+
+
+
+ALTER TABLE LOAN ADD (LOAN_DUR INTERVAL YEAR() TO MONTH);
+INSERT INTO LOAN(NAME,INSTALLMENT,LOAN_DUR)
+VALUES('IMRAN','14-SEP-2021',INTERVAL '120' MONTH(3));
+SELECT loan_dur+sysdate from LOAN;
+INSERT INTO LOAN(NAME,INSTALLMENT,LOAN_DUR)
+VALUES('ALI','14-SEP-2021',INTERVAL '5' MONTH(3));
+INSERT INTO LOAN(NAME,INSTALLMENT,LOAN_DUR)
+VALUES('Aslam','14-SEP-2021',INTERVAL '10' month(8));
+
+
+select installment ,name,manager_loan_dur+sysdate
+from manager_loan;
+
+create table manager_loan(installment date,name varchar2(25));
+
+alter table MANAGER_LOAN add(loan1_dur interval year() to month);
+insert into manager_loan(name,installment,loan_dur)
+values('sami','14-sep-2021',interval'120'month(3));
+select manager_loan_dur+sysdate
+from manager_loan;
+insert into manager_loan(name,installment,loan_dur)
+values('wadho','14-sep-2015',interval '6'month(3));
+
+select * from loan;
+
+desc loan;
+insert into sales_rept(id,fname,lname,salary)
+select employee_id,first_name,Last_name,salary
+from employees
+where employee_id=102;
+
+
+
+insert into sami_table(id,name,phone,gender)
+values(01,'ali','0331123456','M');
+select * from sami_table;
+describe employees;
+
+
+
+
+
+
+select last_name||'-'||first_name "full name",salary,job_id,commission_pct from employees 
+where salary<24000 and last_name like '%A%' or last_name like '%B%'
+order by last_name asc;

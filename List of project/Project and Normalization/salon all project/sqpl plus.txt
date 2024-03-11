@@ -1,0 +1,51 @@
+first step 
+orcl 
+
+second step 
+
+Enter user-name: as sysdba
+Enter user-name: manager
+Enter password: ******
+ERROR:
+ORA-01031: insufficient privileges
+
+
+Enter user-name: system
+Enter password: *******
+
+CREATE USER sabir
+identified by wadho;
+
+created.
+
+grant create session,create table, create sequence,create view
+to sabir;
+
+ succeeded.
+
+create role manager_of_sabir;
+
+SQL> create role MAINTAINER;
+
+Role created.
+
+SQL> GRANT CREATE VIEW TO MAINTAINER;
+
+Grant succeeded.
+
+SQL> GRANT MAINTAINTER TO sabir;
+GRANT MAINTAINTER TO sabir
+      *
+ERROR at line 1:
+ORA-01919: role 'MAINTAINTER' does not exist
+
+
+SQL> GRANT MAINTAINER TO sabir;
+
+Grant succeeded.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> 

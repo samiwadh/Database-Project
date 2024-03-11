@@ -1,0 +1,34 @@
+1) create  view employees_VU
+ (EMPLOYEES_ID,EMPLOYEE,DEPARTMENT_ID)
+ as select   employee_id, last_name, department_id
+ from    employees;
+
+	desc employees_vu;
+2) select * from employees_vu; 
+
+
+4)select employee, department_id
+from employees_vu; 
+
+5)create view dept50
+  (EMPNO,EMPLOYEE,DEPTNO)
+ as select   employee_id, last_name, department_id
+    from     employees
+where department_id=50;
+
+6)desc dept50;
+select * from dept50; 
+
+7)create or replace  view dept50
+(EMPNO,EMPLOYEE,DEPTNO)
+as select   employee_id, last_name, department_id
+from  employees
+where department_id=80;
+
+select * from dept50; 
+
+8)create view salary_vu
+(Employees,Department,Salary,Grade)
+as select e.last_name,d.department_name,e.salary,e.job_id
+from employees e,departments d;
+select* from salary_vu;

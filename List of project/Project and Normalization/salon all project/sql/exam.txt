@@ -1,0 +1,35 @@
+select last_name,hire_date,
+to_char(next_day(add_months(hire_date,6),'monday'),'fmday,"the" Ddspth "of" month,YYYY')
+from employees;
+
+select last_name,hire_date,
+to_char(next_day('monday'),add_months('fmday,"the" Ddspth "of" month,YYYY'),(hire_date,6)))
+from employees;
+
+//16
+select * 
+from employees e ,departments d
+where e.department_id =d.department_id;
+
+//17
+select count(e.employee_id ),d.department_id
+from employees e ,departments d
+where e.department_id =d.department_id 
+and salary IN (select employee_id 
+from employees
+where salary =1000 )
+group by d.department_id,e.employee_id
+havinG e.employee_id=1;
+
+
+CREATE OR REPLACE VIEW salary_vu
+AS
+SELECT e.last_name "Employee",
+d.department_name "Department",
+e.salary "Salary",
+j.grade_level "Grades"
+FROM employees e,
+departments d,
+job_grades j
+WHERE e.department_id = d.department_id
+AND e.salary BETWEEN j.lowest_sal and j.highest_sal;

@@ -1,0 +1,65 @@
+		chemist
+ 
+create table Chemist 
+(emp_id number(7),
+phone_no number(11));
+alter table chemist 
+add (uses number(7));
+alter table chemist 
+add (works_on date);
+
+alter table chemist
+add (constraint works_on_pk primary key(works_on) );
+
+alter table chemist 
+add (uses_fk foreign key(uses), references equipment(uses));
+
+
+insert into chemist(emp_id,phone_no,works_on,uses)
+values(201,033344455,'12-feb-1998','1')
+values(202,038344455,'21-dec-1992','2');
+values(203,037344455,'3-jan-1993','3');
+values(204,03644455,'13-july-1994','4');
+values(205,032344455,'19-mar-1997','5');
+
+		Equipment
+
+create table equipment
+( 
+uses varchar2(24),
+serial number(8),
+cost number(11,4),
+constraint uses_pk primary key(uses));
+
+insert into equipment(uses, serial, cost)
+values('1',100,250);
+values('2',102,120);
+values('3',103,150);
+values('4',104,300);
+values('5',105,220);
+
+		project2
+
+create table project2
+(
+project_id number(7)
+,start_date date
+,works_on date);
+
+alter table project2
+add (constraint works_on_fk foreign key(works_on) references chemist( works_on));
+
+insert into project2( project_id,start_date,works_on)
+values(301,'3-feb-1988','12-feb-1998')
+values(302,'4-jan-1984','21-dec-1992');
+values(303,'13-feb-1975','3-jan-1993');
+values(304,'3-jul-1967','13-july-1994');
+values(305,'9-may-1965','19-mar-1997');
+
+desc equipment;
+desc project2;
+desc chemist;
+
+select *from equipment;
+select *from project2;
+select *from chemist; 

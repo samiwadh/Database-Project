@@ -1,0 +1,120 @@
+BACK 
+GO_BLOCK('LOGIN');
+OPEN_FORM('C:\Users\HP\Desktop\LOGIN\fmx');
+
+SEARCH
+
+BEGIN 
+	SET_BLOCK_PROPERTY('PERSONS',DEFAULT_WHERE,'PERSONS_ID,SERVICE_ID,CUSTOMER_ID,BRANCH_ID,EQU_ID,SERIAL_NO='||':SEARCH.SERACH_BOX');
+	GO_BLOCK('PERSONS');
+	EXECUTE_QUERY;
+	SET_BLOCK_PROPERTY('PERSONS',DEFAULT_WHERE,'');
+	END;
+
+
+alter table accounts
+add  user_type varchar2(50) ;
+
+
+
+LOGIN 
+
+declare
+	un varchar2(20);
+	pw varchar2(20);
+	rol varchar(20);
+begin
+	select username,password,roles
+	into un,pw,rol
+	from USERS
+	where username=:txtun and roles=:txtr;
+			if :txtr='administrator' then
+				 if un=:txtun then
+					if pw=:txtpw then
+						open_form('E:\my project\INDEX.fmx');
+					else
+						message('Incorrect password');
+					end if;
+				 else
+					message('Incorrect username');
+				 end if;
+			else :txtr:='manager'; 
+					if un=:txtun then
+							if pw=:txtpw then
+								open_form('E:\my project\INDEX.fmx');
+							else
+								message('Incorrect password');
+							end if;
+						 else
+							message('Incorrect username');
+						 end if;
+	end if;
+end;
+
+
+
+go_block('LOGIN');
+declare
+ a varchar2(50);
+ b varchar2(50);
+begin 
+	select user_id ,user_password into a ,b  from account
+	where user_id = :login.user_id
+	and user_password = :login.user_password;
+	if sql%found 
+		then 
+		open_form('C:\Users\Dr.Abdul Ahad\Desktop\TABLES.fmb');
+		else 
+		message('the password is incorrect');
+	end if ;
+	end;
+
+
+declare
+ a varchar2(50);
+ b varchar2(50);
+ c varchar2(50);
+begin 
+	select user_id ,user_password,user_type into a ,b,c  from accountS
+	where user_id = :login.user_id
+	and user_password = :login.user_password
+	and user_type=:login.user_type;
+IF c='MANAGER'THEN
+	if sql%found 
+		then 
+		GO_BLOCK('HOME_PAGE');-----GO THAT BLOCK WHICH WE WANT
+		SHOW_VIEW('HOME_PAGE');----SHOW THAT CANVIX WHICH BLOCK IS
+		HIDE_VIEW('LOGIN');
+		else 
+		message('the password is incorrect');
+		end if ;
+	
+ELSE c:='EMPLOYEES';
+	
+	if sql%found 
+		then 
+		open_form('HOME_PAGE');
+		else 
+		message('the password is incorrect');
+		end if ;
+END IF;
+	end;
+
+
+
+
+
+
+
+
+
+
+GO_BLOCK('HOME_PAGE1');-----GO THAT BLOCK WHICH WE WANT
+		SHOW_VIEW('HOME_PAGE1');----SHOW THAT CANVIX WHICH BLOCK IS
+		HIDE_VIEW('CANVAS130');
+
+
+
+
+
+

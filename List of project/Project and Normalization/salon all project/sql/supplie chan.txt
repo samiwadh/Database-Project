@@ -1,0 +1,117 @@
+Add a FOREIGN KEY constraint to the EMPLOYEES 
+table indicating that a manager must already exist as 
+a valid employee in the EMPLOYEES table.
+
+
+ALTER TABLE     employees
+ADD CONSTRAINT  emp_manager_fk 
+  FOREIGN KEY(manager_id) 
+  REFERENCES employees(employee_id);
+
+
+
+
+
+1)	create table product2(Prod_code number(7) not null,
+Prod_name varchar2(25) not null ,Prod_cost number(7,4) not null, 
+Prod_Qty number(7) not null, Prod_cat varchar2(25) not null ,
+Prod_image varchar2(25)not null,Prod_date date ,emp_id number(7) not null);
+
+desc product2;
+
+alter table product2
+add primary key(Prod_code);
+
+
+2)	create table  Stock_in(Stockin_id number(7) not null, emp_id number(7) not null,Prod_code number(7) not null, 
+	Stockin_date date not null, stockin_Qty number(7) not null);
+	
+	desc Stock_in;
+
+ALTER TABLE     stock_in 
+ADD CONSTRAINT  stock_in_emp_id_fk
+  FOREIGN KEY(emp_id) 
+  REFERENCES product2(prod_code);
+
+desc stock_in;
+
+
+alter table stock_in
+add primary key(stockin_id);
+desc stock_in;
+
+3)create table employee1( emp_id number(7) not null ,emp_name varchar2(25) not null,emp_ic varchar2(25) not null,
+emp_username varchar2(25) not null,emp_password varchar2(25) not null,emp_dob number(7) not null ,
+emp_address varchar2(25) not null,emp_contact number(11) not null,emp_image varchar2(25) not null,
+emp_usertype varchar2(25) not null,emp_status varchar2(25) not null,emp_category varchar2(25) not null,
+emp_gender varchar2(4) not null);
+
+desc employee1;
+
+alter table employee1
+add primary key(emp_id);
+desc employee1;
+
+4 create table  Stock_used(stockused_id number(7) not null,prod_code number(7) not null,
+	stockused_qty number(7) not null, stockused_date date not null);
+
+desc stock_used;
+
+
+alter table stock_used
+add primary key(stockused_id);
+desc stock_used;
+
+5) create table  Appointment(app_id number(7) not null,cust_id number(7) not null,
+emp_id number(7) not null, seriver_id number(7) not null,app_date date not null);
+
+
+desc appointment;
+
+alter table appointment
+add primary key(app_id);
+desc appointment;
+
+
+6) create table  Payment(payment_id number(7) not null,cust_id number(7) not null,emp_id number(7) not null,
+ payment_amt number(7,5) not null, payment_date date not null);
+desc payment;
+
+alter table payment
+add primary key(payment_id);
+desc payment;
+
+
+7)create table  Payment_service(ps_id number(7) not null,payment_id number(7) not null,service_id number(7) not null);
+desc Payment_service;
+
+alter table payment_service
+add primary key(ps_id);
+desc payment_service;
+
+
+8)create table Service(service_id number(7) not null,service_name varchar2(25) not null);
+desc service;
+
+alter table service
+add primary key(service_id);
+desc service;
+
+9) create table Customer(cust_name varchar2(25) not null, cust_ic varchar2(25) not null ,
+cust_dob varchar2(25) not null, cust_gender varchar2(4) not null,cust_contact number(11) not null,
+cust_address varchar2(24) not null,cust_occ varchar2(24) not null ,emp_id number(7) not null);
+desc customer;
+
+
+alter table customer
+add primary key(cust_id);
+desc customer
+
+
+
+
+
+
+
+
+

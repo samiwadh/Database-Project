@@ -1,0 +1,95 @@
+create table users(user_id varchar2(50),user_password varchar2(50));  
+insert into users(user_id,user_password)
+values('samiwadho','Wadho');
+------------------------------------------
+equipment
+ create table equipment(equ_id varchar2(50),product_type varchar2(50),constraint equ_id_pk primary key(equ_id));
+
+-----------------------------------------
+bill_voucher
+create table bill_voucher(serial_no varchar2(50),payment_method varchar2(30),
+    description varchar2(40),amount number(7), constraint serial_no_pk primary key(serial_no) );
+
+------------------------------------------------
+branch
+
+ create table branch(branch_id varchar2(50),branch_city varchar2(50),branch_location varchar2(50),
+   branch_contact varchar2(50), constraint branch_id_pk primary key(branch_id));
+
+
+
+-------------------------------------
+service
+
+create table service(service_id varchar2(50),service_type varchar2(50),service_charge number(7),
+   constraint service_id_pk primary key(service_id));
+-------------------------
+customer
+
+create table customer(customer_id varchar2(50) not null,service_id varchar2(50) not null,
+appointment_id number(7) not null,appointment_date date,
+constraint customer_id_pk primary key(customer_id));
+
+ALTER TABLE     customer
+ADD CONSTRAINT  customer_service_fk 
+FOREIGN KEY(service_id) 
+REFERENCES customer(customer_id);
+
+
+---------------------------
+
+create table Persons(
+    person_id number(7) not null ,branch_id varchar2(50) not null,
+    first_name varchar2(50) not null , gender varchar2(7) not null CHECK (Gender IN ('Male','Female')),
+    manager_id number(7) not null, contact number(11) unique,
+    user_id number(7) unique,user_password varchar2(14) unique,
+    owner_name varchar2(50) unique,customer_id varchar2(50),service_id varchar2(50),
+    equ_id varchar2(50),serial_no varchar2(50),
+constraint Person_id_fk primary key(person_id),
+CONSTRAINT Persons_branch_fk FOREIGN KEY (branch_id) REFERENCES branch(branch_id),
+CONSTRAINT Persons_customer_fk FOREIGN KEY (customer_id) REFERENCES customer(customer_id),
+CONSTRAINT Persons_service_fk FOREIGN KEY (service_id) REFERENCES service(service_id),
+CONSTRAINT Persons_equipment_fk FOREIGN KEY (equ_id) REFERENCES equipment(equ_id),
+CONSTRAINT Persons_bill_voucher_fk FOREIGN KEY (serial_no) REFERENCES bill_voucher(serial_no));
+-----------------------OR--------------------------------------------------------------
+ALTER TABLE AHMED 
+ADD CHECK (GENDER='MALE,FEMALE');
+--------------------------------------------------------------------------------
+
+login
+
+go_block('LOGIN');
+declare
+ a varchar2(50);
+ b varchar2(50);
+begin 
+	select user_id ,user_password into a,b from users
+	where user_id = :login.user_id
+	and user_password = :login.user_password;
+	if sql%found 
+		then 
+		open_form('');
+		else 
+		message('the password is incorrect');
+	end if ;
+	end;
+
+
+
+
+
+
+
+
+
+SIGN 
+GO_BLOCK('SU');
+SHOW_VIEW('SU_CAN');
+HIDE_VIEW('LOGIN_CAN');
+
+
+
+
+
+insert into Employee(ID,  First_Name, Last_Name, Start_Date,                     End_Date,                       Salary,  City,       Description)
+  2               values ('01','Jason',    'Martin',  to_date('19960725','YYYYMMDD'), to_date('20060725','YYYYMMDD'), 1234.56, 'Toronto',  'Programmer')

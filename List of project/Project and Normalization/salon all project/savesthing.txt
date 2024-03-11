@@ -1,0 +1,54 @@
+2)s
+set serveroutput on
+DECLARE 
+	EMP_REC EMPLOYEES%ROWTYPE;
+
+BEGIN
+SELECT * INTO EMP_REC FROM EMPLOYEES WHERE EMPLOYEE_ID=112;
+
+DBMS_OUTPUT.PUT_LINE(EMP_REC.LAST_NAME||EMP_REC.SALARY||EMP_REC.HIRE_DATE);
+END;
+
+1)set serveroutput on
+declare 
+emp_rec employees%rowtype ;
+begin 
+select * into emp_rec from employees where job_id='AD_ASST';
+dbms_output.put_line(emp_rec.job_id);
+end;
+
+
+
+2)
+set serveroutput on
+declare
+cursor v1 is select c.country_name from employees e join departments d 
+on 
+(e.department_id=d.department_id)
+join 
+location l on(d.location_id=l.location_id)
+join 
+countries c on(l.country_id=c.country_id)where e.job_id='IT_PROG';
+grop v1%rowtype;
+begin 
+open v1;
+loop
+fetch v1 into grop;
+dbms_output.put_line(grop.country_name);
+exit loop;
+close v1;
+end;
+
+
+
+declare 
+a int := :intger;
+b int := :intger1;
+c int := :intger2;
+d int := a+b-c;
+begin
+dbms_output.put_line(a); 
+dbms_output.put_line(b);
+dbms_output.put_line(c);
+dbms_output.put_line(d);
+end; 

@@ -1,0 +1,126 @@
+Bank has Branches => 1 : N 
+One Bank can have many Branches but one Branch can not belong to many Banks, 
+so the relationship between Bank and Branch is one to many relationship. 
+ 
+Branch maintain Accounts => 1 : N 
+One Branch can have many Accounts but one Account can not belong to many Branches, 
+so the relationship between Branch and Account is one to many relationship. 
+
+Branch offer Loans => 1 : N 
+One Branch can have many Loans but one Loan can not belong to many Branches, 
+so the relationship between Branch and Loan is one to many relationship. 
+ 
+Account held by Customers => M : N 
+One Customer can have more than one Accounts and also One Account can be held by 
+one or more Customers, so the relationship between Account and Customers is many to
+ many relationship. 
+ 
+Loan availed by Customer => M : N 
+(Assume loan can be jointly held by many Customers). 
+One Customer can have more than one Loans and also One Loan can be 
+availed by one or more Customers, so the relationship between Loan and Customers is
+ many to many relationship.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+create table Bank(Bank_Name varchar2(25),Bank_code number(7), address varchar2(24),branch_id number(24));
+desc bank;
+
+insert into bank(Bank_name,Bank_code,address,branch_id)
+values('HBL',1,'Karachi',1);
+values('NBP',2,'North Karachi',2);
+values('HBL',3,'Larkana',3);
+values('MCB',4,'Karachi',4);
+values('UBL',5,'Kamber',5);
+values('NBP',6,'Kamber',6);
+values('HBL',7,'Karachi',7);
+values('MCB',8,'hyderabad',8);
+values('HBL',9,'Jamshoro',9);
+values('MCB',10,'Jamshoro',10);
+select* from bank;
+
+create table branch(branch_id number(7),branch_Name varchar2(25),address varchar2(25),Bank_code number(7),account_no number(7),loan_id number(7));
+
+drop table branch;
+
+insert into branch(branch_id,branch_Name,address,bank_code,account_no,loan_id)
+values(1,'HBL a','Karachi',1,00772,500);
+values(2,'NBP b','North Karachi',2,00773,501);
+values(3,'HBL c','Larkana',3,00774,502);
+values(4,'MCB d','Karachi'4,00775,503);
+values(5,'UBL e','Kamber',5,00776,504);
+values(6,'NBP f','Kamber',6,00777,505);
+values(7,'HBL g','Karachi'7,00778,506);
+values(8,'MCB h','hyderabad',8,00779,507);
+values(9'HBL i' ,'Jamshoro',9,00780,508);
+values(10,'MCB j','Jamshoro',10,00781,509);
+
+desc branch;
+
+
+create table loan(loan_id number(7),loan_type   varchar2(24),amount number(10,7),Custid number(7)) ;
+
+insert into loan(loan_id,loan_type,amount, Custid)
+values(500,'Home Loan',19900,500);
+values(501,'Car Loan',200000,501);
+values(502,'Personal Loan',240000,502);
+values(503,'Car Loan',560000,503);
+values(504,'HomeLoan',30000,504);
+values(505,'Personal Loan',19900,505);
+values(506,'Home Loan',142000,506);
+values(507,'Personal Loan',12300,507);
+values(508,'Home Loan',45000,508);
+values(509,'Car Loan',32133,509);
+desc loan;
+
+
+create table account(account_no number(7),acc_type varchar2(24),balance number(7),Custid number(7));
+
+values(00772,'Saving',10000,500); 
+values(00773,'Current',21000,501);
+values(00774,'Saving',13100,502);
+values(00775,'Current',31000,503);
+values(00776,'Saving',50100,504);
+values(00777,'Saving',51000,505);
+values(00778,'Current',41000,506);
+values(00779,'Saving',11100,507);
+values(00780,'Saving',131000,508);
+values(00781,'Current',151000,509);
+
+
+
+create table customer(Custid number(7),customer_Name varchar2(25), phone number(11), address varchar2(24));
+insert into customer(Custid,customer_name,phone,address)
+values(500,'Sabir',0333322221,'Sukker');
+values(501,'Ahad',0333344442,'Qamber');
+values(502,'Aamir',0333323333,'Larkana');
+values(503,'Sadique',0333322214,'Hyderabad');
+values(504,'Ased',0333322115,'Qamber');
+values(505,'Tanveer',0333322116,'sukker');
+values(506,'Irfan',0333322227,'dadu');
+values(507,'Abdullah',0333323338,'Islamabad');
+values(508,'Ahmed',0333322229,'sukker');
+values(509,'Sami',0333322221,'Qamber');
+

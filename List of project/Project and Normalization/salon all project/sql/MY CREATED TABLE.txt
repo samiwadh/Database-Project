@@ -1,0 +1,135 @@
+ALTER TABLE     employees
+ADD CONSTRAINT  emp_manager_fk 
+  FOREIGN KEY(manager_id) 
+  REFERENCES employees(employee_id);
+
+ALTER TABLE      employees
+DROP CONSTRAINT  emp_manager_fk;
+Table altered.
+
+note	
+update hostals
+set h_name='AllahDino'
+where h_name='irfan';
+
+
+delete from hostals
+where h_number=1;
+
+alter table
+
+
+select *from cat;
+ 
+select table_name 
+from user_table;
+
+alter table depts
+add(job_id varchar(25));
+
+alter table depts
+drop column job_id
+
+alter table depts
+modify(job_id varchar(30));
+
+insert into hostals(H_NUMBER,H_NAME,	H_LOCATION	,H_FEES	,S_ID	,S_NAME,	S_CASTE	,S_NUMBER	,S_DEPARTMENT)
+values(4,'Allahdino',1100,320000,2,'Ali','Memon',0319865892,'software');
+
+
+			MY CREATED
+1)
+create table hostals(H_NUMBER NUMBER(10),H_NAME VARCHAR(50),H_LOCATION NUMBER(4),
+H_FEES NUMBER(10,3),S_ID NUMBER(10),S_NAME VARCHAR(20),S_CASTE VARCHAR(20),S_NUMBER NUMBER(10),S_DEPARTMENT VARCHAR(50));
+
+
+insert into headquarters(headquartersid,branchid)
+value 
+desc headquarters; 
+
+1)create table supplier(DeliveryId number(7),DeliveryDate date,SupplierId varchar2(25));
+
+
+2)create table order1(OrderId number(7),OrderDate date,HeadquartersId varchar(25));
+
+
+
+
+3)create TABLE orderdetail(OrderDetailId varchar2(25),ProductId number(25),OrderId number(7));
+
+insert into orderdetail(orderid,productQuantity,productid,orderDetailid)
+values(2,'Excellent','LifeBoy','51');
+values(3,'Bad','Colgate','52')
+values(4,'Excellent','Lux','53');
+values(5,'Bad','Amul','54');
+values(6,'Good','Horlicks','55');
+values(7,'Excellent','Dettol','56');
+values(8,'Good','LifeBoy','57');
+values(9,'Excellent','LifeBoy','58');
+values(10,'Good','Dettol','59');
+values(11,'Bad','Colgate','60');
+values(12,'Excellent','LifeBoy','61');
+values(13,'Good','CloseUp','62');
+values(14,'Excellent','Airtel','63');
+values(15,'Excellent','LifeBoy','64');
+values(16,'Good','Britannia','65');
+values(17,'Bad','Pepsodent','66');
+values(18,'Excellent','LifeBoy','67');
+values(19,'Good','CliniC','68');
+values(20,'Bad','LifeBoy','69);
+values(21,'Excellent','Amul','70');
+
+
+4)create TABLE product(SupplierId varchar2(25),ProductId number(25));
+values('King','LifeBoy');
+values('Kochhar','LifeBoy');
+values('De Haan','Colgate')
+values('Hunold','Lux');
+values('Austin','Amul');
+values('Pataballa','Horlicks');
+values('Lorentz','Dettol');
+values('Greenberg','LifeBoy');
+values('Faviet','LifeBoy');
+values('Chen','Dettol');
+values('Sciarra','Colgate');
+values('Urman','LifeBoy');
+values('Popp','CloseUp');
+values('Raphaely','Airtel');
+values('Khoo','LifeBoy');
+values('Baida','Britannia');
+values('Tobias','Pepsodent');
+values('Himuro','LifeBoy');
+values('Colmenares','CliniC');
+values('Weiss','LifeBoy');
+values('Ernst','Amul');
+
+
+5)create table orderdetaildelivery(DeliveryId number(7),OrderId number(7), OrderDetailid varchar2(25));
+
+
+6)create TABLE headquarters(branchId varchar2(25),HeadquartersId varchar(25));
+
+INSERT INTO headquarters(BRANCHID,headquartersID)
+VALUES ('1000','Karachi');
+VALUES ('1100','Faisalabad');
+VALUES ('2200 ','Rawalpindi');
+VALUES ('1180','Peshawar');
+VALUES ('1200 ','Multan');
+VALUES ('1280 ','Lahore');
+VALUES ('1150','Karachi');
+VALUES ('1350','Hyderabad');
+VALUES ('1400','Lahore');
+VALUES ('1020','Karachi');
+VALUES ('2250','Rawalpindi');
+VALUES ('1250','Lahore');
+VALUES ('1140','Peshawar');
+VALUES ('1220','Multan ');
+VALUES ('1450','Lahore');
+VALUES ('2500','Quetta');
+VALUES('2000','Swat');
+VALUES('2150','Gujranwala');
+
+7)create table branch(brancid varchar2(25));
+insert into branch(branchid)
+select branchid
+from headquarters;

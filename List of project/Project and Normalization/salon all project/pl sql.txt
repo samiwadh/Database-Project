@@ -1,0 +1,698 @@
+12/10/2021
+declare
+a int :=4;
+b int :=2;
+c int :=11;
+d int :=a+b*c;
+begin
+dbms_output.put_line(a);
+dbms_output.put_line(b);
+dbms_output.put_line(c);
+dbms_output.put_line(d);
+end ;
+
+declare 
+a number:= 12;
+b number:=4;
+c number:=3;
+d number:=a+b*c;
+e number:=a*b/d;
+f number:=e+a+c;
+begin 
+dbms_output.put_line('intger a:='||a);
+dbms_output.put_line('intger b:='||b);
+dbms_output.put_line('intger c:='||c);
+dbms_output.put_line('the addition a and b multiplation c of :='||d);
+dbms_output.put_line('the multip a and b divion of d :='||e);
+dbms_output.put_line('the add of "E" and "A" :='||f);
+end;
+
+
+declare 
+volt number :=100;
+price int:= volt-10;
+volt2 number :=volt*2;
+price1 int := volt2-25;
+price3 number:= price+price1;
+begin
+dbms_output.put_line('volt:='||volt); 
+dbms_output.put_line('price:='||price); 
+dbms_output.put_line('volt2:='||volt2); 
+dbms_output.put_line('price1:='||price1);
+dbms_output.put_line('price3:='||price3);
+
+end ;
+
+
+declare
+unit number :=110;
+pri number:=unit-10;
+pri2 number:=pri*20;
+pri3 number:=unit-100;
+pri4 number:=pri3*20;
+total number:=pri2+pri4;
+begin
+dbms_output.put_line('amount:='||pri);
+dbms_output.put_line('amount:='||pri2);
+dbms_output.put_line('amount:='||pri3);
+dbms_output.put_line('amount:='||pri4);
+dbms_output.put_line('amount:='||total);
+end;
+
+
+
+declare 
+define varchar2(100):= :label;
+
+a int := :volt;
+b int := :price;
+c int := a-b;
+d number := :day;
+e number := a+d;
+begin
+dbms_output.put_line(define||c);
+dbms_output.put_line(lable||e);
+end;
+
+
+declare 
+define varchar2(100):= :define;
+
+a int := :salary;
+b int := :avg;
+c int := a/b;
+begin
+dbms_output.put_line(define|| c);
+end;
+
+
+declare 
+a int := :intger;
+b int := :intger1;
+c int := :intger2;
+d int := a+b-c;
+begin
+dbms_output.put_line(a); 
+dbms_output.put_line(b);
+dbms_output.put_line(c);
+dbms_output.put_line(d);
+end; 
+
+declare
+dat employees.hire_date%type; 
+begin 
+select hire_date into dat 
+from employees
+where employee_id=109;
+dbms_output.put_line(dat);
+end;
+
+
+
+declare
+sal employees.salary%type;
+begin 
+select salary into sal from employees where employee_id=199;
+dbms_output.put_line(sal);
+end;
+
+
+
+
+14/10/2021
+
+there is an problem
+
+create table sample2(id number(7),name varchar2(40),job_date date ,job_id number(7),loc_id varchar2(30),dept_id varchar2(34));
+drop table sample;
+
+declare 
+id number(7);
+name varchar2(40);
+job_date date ;
+job_id number(7);
+loc_id varchar2(30);
+dept_id varchar2(34);
+begin 
+select e.employee_id,e.last_name,e.hire_date,e.department_id,d.location_id,d.department_id
+into  s.id,s.name,s.job_date,s.job_id,s2.loc_id,s2.job_id
+from employees e,departments d
+where e.department_id=d.department_id;
+end;  
+
+desc employees;
+desc departments;
+
+create table sample(id number(7),name varchar2(40),job_date date ,job_id number(7),loc_id varchar2(30),dept_id varchar2(34));
+drop table sample;
+
+declare 
+id number(7);
+name varchar2(40);
+job_date date ;
+job_id number(7);
+loc_id varchar2(30);
+dept_id varchar2(34);
+begin 
+select e.employee_id,e.last_name,e.hire_date,e.department_id,d.location_id,d.department_id
+into  id,name,job_date,job_id,loc_id,dept_id
+from employees e,departments d
+where e.department_id=d.department_id;
+end;  
+
+desc employees;
+desc departments;
+
+
+
+declare
+id int(7);
+name varchar2(30);
+price number(9);
+house_code number(7);
+loc_id number(7);
+city varchar2(30);
+begin
+select d.department_id,d.department_name,e.salary,l.postal_code,l.location_id into id , name, price,house_code,loc_id
+from departments d,locations l,employees e
+where d.Department_id=40;
+end;
+
+
+
+declare i
+alter table hesco_bill
+add (house_code number(7),loc_id number(7),city varchar2(30));
+
+alter table hesco_bill
+drop column HOUSE_CODE;
+select * from DEPARTMENTS;
+select* from locations;
+
+
+
+15/10/2021
+
+
+1)declare 
+name employees.last_name%type;
+
+begin
+select last_name into name from employees where employee_id=102;
+dbms_output.put_line(name);
+end;
+
+
+2)declare 
+emp_rec employees%rowtype;
+
+begin
+select * into emp_rec from employees where employee_id=102;
+dbms_output.put_line(emp_rec.last_name||emp_rec.salary);
+end;
+
+declare 
+emp_rec employees
+
+3)DECLARE 
+	EMP_REC EMPLOYEES%ROWTYPE;
+DEPT_REC DEPARTMENTS%ROWTYPE;
+
+BEGIN
+
+SELECT * INTO EMP_REC FROM EMPLOYEES WHERE EMPLOYEE_ID=112;
+
+SELECT * INTO DEPT_REC FROM DEPARTMENTS WHERE DEPARTMENT_ID=10;
+DBMS_OUTPUT.PUT_LINE(EMP_REC.LAST_NAME||EMP_REC.SALARY||EMP_REC.HIRE_DATE);
+DBMS_OUTPUT.PUT_LINE(DEPT_REC.DEPARTMENT_NAME||DEPT_REC.LOCATION_ID);
+END;
+
+
+4) question
+declare
+caste employees.first_name%type ;
+begin
+select first_name into caste from employees where employee_id in (103,104);
+dbms_output.put_line(caste);
+end;  
+
+ORA-01422: exact fetch returns more than requested number of rows
+5)question
+
+declare 
+caste employees.first_name%type ;
+begin
+select first_name into caste from employees where employee_id between 103 and 104;
+dbms_output.put_line(caste);
+end; 
+ORA-01422: exact fetch returns more than requested number of rows
+
+6)declare 
+home_date employees.hire_date%type ;
+begin
+select hire_date into home_date 
+from employees 
+where employee_id =100;
+dbms_output.put_line(home_Date);
+end; 
+
+7)
+
+Declare 
+emp_rec employees%rowtype;
+dept_rec departments%rowtype;
+loc_rec locations%rowtype; 
+begin 
+select * into emp_rec from employees where employee_id=120;
+select * into dept_rec from departments where department_id=20;
+select * into loc_rec from locations where location_id=1700;
+dbms_output.put_line(emp_rec.department_id||'  '||emp_rec.salary||'   '||emp_rec.hire_date);
+dbms_output.put_line(dept_rec.location_id||'  '||dept_rec.department_id||'   '||dept_rec.department_name);
+dbms_output.put_line(loc_rec.address||'  '||loc_rec.department_id||'   '||loc_rec.department_name);
+end;
+
+
+8)
+
+still under work
+Declare 
+emp_rec employees%rowtype;
+dept_rec departments%rowtype;
+x number2(50):=:id;
+y varchar2(50):=:name;
+begin 
+select * into emp_rec from employees where employee_id=x and last_name=b;
+select * into dept_rec from departments where department_id=80;
+dbms_output.put_line(emp_rec.employee_id||'  '||emp_rec.last_name);
+dbms_output.put_line(dept_rec.location_id||'  '||dept_rec.department_id||'   '||dept_rec.department_name);
+
+end;
+
+done
+
+Declare 
+emp_rec employees%rowtype;
+dept_rec departments%rowtype;
+a varchar2(50):=:id;
+begin 
+select * into emp_rec from employees where employee_id=a;
+select * into dept_rec from departments where department_id=80;
+dbms_output.put_line(emp_rec.employee_id||'  '||emp_rec.last_name);
+end;
+select * from employees;
+select * from departments;
+
+samiwadho 
+task 18/10/2021
+
+1)
+Declare 
+emp_rec employees%rowtype;
+begin 
+select * into emp_rec from employees where employee_id=120;
+dbms_output.put_line(emp_rec.employee_id||'  '||emp_rec.first_name||'   '||emp_rec.last_name||' '||emp_rec.email||' '||emp_rec.phone_number||' '||emp_rec.hire_Date
+||' '||emp_rec.job_id||' '||emp_rec.salary||' '||emp_rec.commission_pct||' '||emp_rec.manager_id||' '||emp_rec.department_id);
+end;
+
+2)
+Declare 
+emp_rec employees%rowtype;
+cou_rec countries%rowtype;
+begin 
+select * into emp_rec from employees where job_id='AD_ASST';
+select * into cou_rec from countries where country_id='AR';
+DBMS_OUTPUT.PUT_LINE(emp_rec.JOB_ID||' '||cou_rec.COUNTRY_NAME);
+END;
+---------------------------OR---------------------------------------
+DECLARE
+id varchar2(20);
+country varchar2(20);
+begin 
+select employees.job_id,countries.country_name into id,country from employees e
+inner join departments
+ON employees.department_id=departments.department_id
+inner join locations
+ON departments.location_id=locations.location_id
+inner join countries
+ON locations.country_id=countries.country_id
+where job_id= 'AD_ASST';
+DBMS_OUTPUT.PUT_LINE(ID||' '||country);
+end;
+
+
+3)declare 
+a number:= 12;
+b number:=4;
+c number:=3;
+d number:=a+b*c;
+e number:=a*b/d;
+f number:=e+a+c;
+begin 
+dbms_output.put_line('intger a:='||a);
+dbms_output.put_line('intger b:='||b);
+dbms_output.put_line('intger c:='||c);
+dbms_output.put_line('the addition a and b multiplation c of :='||d);
+dbms_output.put_line('the multip a and b divion of d :='||e);
+dbms_output.put_line('the add of "E" and "A" :='||f);
+end;
+
+
+4)declare 
+
+NAME VARCHAR2(20):= :NAME;
+CASTE VARCHAR2(20):= :CASTE;
+FATHERNAME VARCHAR2(20) :=:FATHERNAME;
+ADDRESS VARCHAR2(20):=:ADDRESS;
+begin
+DBMS_OUTPUT.PUT_LINE(NAME);
+DBMS_OUTPUT.PUT_LINE(CASTE);
+DBMS_OUTPUT.PUT_LINE(FATHERNAME);
+DBMS_OUTPUT.PUT_LINE(ADDRESS);
+
+end;
+
+5)Declare 
+emp_rec employees%rowtype;
+begin 
+select * into emp_rec from employees where employee_id=149;
+dbms_output.put_line(emp_rec.employee_id||'  '||emp_rec.first_name||'   '||emp_rec.last_name||' '||emp_rec.email||' '||emp_rec.phone_number||' '||emp_rec.hire_Date
+||' '||emp_rec.job_id||' '||emp_rec.salary||' '||emp_rec.commission_pct||' '||emp_rec.manager_id||' '||emp_rec.department_id);
+end;
+
+7)declare 
+id number(7);
+name varchar2(40);
+begin 
+select employee_id,last_name into id,name
+from employees
+where employee_id=100;
+dbms_output.put_line(id ||' '|| name );
+end; 
+
+
+8)declare 
+subject varchar2(40):= :subject;
+TOTAL_marks INT := :TOTAL_marks;
+marks_obtainEd int := :marks_obtaind;
+Grade varchar2(1):=:Grade;
+remarks varchar2(30):=:remarks;
+begin
+dbms_output.put_line('SUBJECT='||subject);
+dbms_output.put_line('TOTAL_MARKS='||TOTAL_marks);
+dbms_output.put_line('MARKS_OBTAINED='||marks_obtainEd);
+dbms_output.put_line('GREADE='||Grade);
+dbms_output.put_line('REMARKS='||Remarks);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tank 20/10/2021
+
+
+1)
+
+create table oracle_trade1(institution_id number(7),student_name varchar2(30)not null,trade_name varchar2(30)not null,roll_no varchar2(30)not null,GENDER varchar2(1)not null,CNIC_NO NUMBER(14)not null);
+alter table oracle_trade1
+add primary key(institution_id );
+
+create table web_development_trade1(institution_id number(7),student_name varchar2(30)not null,trade_name varchar2(30)not null,roll_no varchar2(30)not null,GENDER varchar2(1)not null,CNIC_NO NUMBER(14)not null);
+
+alter table web_development_trade1
+add constraint institution_id_fk
+foreign key(institution_id)
+references oracle_trade1(institution_id);
+
+desc web_development_trade1;
+desc oracle_trade1;
+
+
+insert into web_development_trade1(institution_id ,student_name ,trade_name ,roll_no ,GENDER ,CNIC_NO)
+valueS (001,'John','ORACLE',1,'M',44444444441);
+valueS (002,'Franklin','ORACLE',2,'M',44444444442);
+valueS (003,'Alicia','ORACLE',3,'F',44444444443);
+valueS (004,'Jennifer','ORACLE',4,'F',44444444444);
+valueS (005,'Ramesh','ORACLE',5,'M',44444444445);
+valueS (006,'Ahmad','ORACLE',6,'M',44444444446);
+valueS (007,'James','ORACLE',7,'M',44444444447);
+valueS (008,'JULIA','ORACLE',8,'F',44444444448);
+valueS (009,'MARYAM','ORACLE',9,'F',44444444449);
+valueS (010,'ANIES','ORACLE',10,'M',44444444450);
+
+
+insert into oracle_trade1(institution_id ,student_name ,trade_name ,roll_no ,GENDER ,CNIC_NO)
+valueS (001,'SADIQUE','ORACLE',1,'M',34444444441);
+valueS (002,'ALI','ORACLE ERP',2,'M',34444444442);
+valueS (003,'SABIR','ORACLE ERP',3,'M',34444444443);
+valueS (004,'AYAN','ORACLE ERP',4,'M',34444444444);
+valueS (005,'SAMI','ORACLE ERP',5,'M',34444444445);
+valueS (006,'AHAD','ORACLE ERP',6,'M',34444444446);
+valueS (007,'ABDULLUAH','ORACLE ERP',7,'M',34444444447);
+valueS (008,'HINA','ORACLE ERP',8,'F',34444444448);
+valueS (009,'NIDA','ORACLE ERP',9,'F',34444444449);
+valueS (010,'SAMEERA','ORACLE ERP',10,'F',34444444451);
+
+
+SELECT * FROM  oracle_trade1;
+select * from web_development_trade1;
+
+SELECT O.STUDENT_NAME
+FROM web_development_trade1 W, oracle_trade1 O
+WHERE O.institution_id=W.institution_id;
+end;
+
+
+2)
+declare 
+student_name varchar2(20) := :student_name;
+trade_name varchar2(20) := :trade_name;
+roll_no int := :roll_no;
+gender varchar2(20):= :gender;
+cnic_no int := :cnic_no;
+begin
+dbms_output.put_line(student_name);
+dbms_output.put_line(trade_name);
+dbms_output.put_line(roll_no);
+dbms_output.put_line(gender);
+dbms_output.put_line(cnic_no);
+end;
+
+3)
+declare 
+id number(7);
+name varchar2(40);
+begin 
+select employee_id,reverse(last_name) into id,name
+from employees
+where employee_id=149;
+dbms_output.put_line(id ||' '|| name );
+end; 
+
+4)
+Declare 
+emp_rec employees%rowtype;
+dept_rec departments%rowtype;
+a varchar2(50):=:id;
+begin 
+select * into emp_rec from employees where employee_id=a;
+select * into dept_rec from departments where department_id=80;
+dbms_output.put_line(emp_rec.last_name||'  '||emp_rec.salary);
+end;
+
+
+
+26/11/2021
+
+
+
+declare 
+cursor c1 is 
+select hire_date,salary
+from employees
+where employee_id=147;
+emp_rec c1 %rowtype;
+begin 
+open c1 ;
+fetch c1 into emp_rec; 
+dbms_output.put_line(emp_rec.hire_date);
+dbms_output.put_line(emp_rec.salary);
+end;
+
+
+
+declare 
+cursor c1 is 
+select hire_date,salary
+from employees
+where employee_id=147;
+emp_rec c1 %rowtype;
+begin 
+open c1 ;
+fetch c1 into emp_rec; 
+dbms_output.put_line(emp_rec.hire_date);
+dbms_output.put_line(emp_rec.salary);
+end;
+
+
+27/10/2021
+
+step1
+delcare
+cursor c1 is
+
+begin 
+open c1;
+fetch 
+
+close c1;
+end;
+
+
+step2
+
+declare
+cursor c1 is
+select * from employees;
+emp_rec c1%rowtype;
+begin 
+open c1;
+fetch c1 into emp_rec;
+dbms_output.put_line(emp_rec.last_name);
+close c1;
+end;
+
+
+step 3
+
+declare
+cursor c2 is
+select * from employees;
+emp_rec c2%rowtype;
+cursor c3 is 
+select * from departments;
+dept_rec c3%rowtype; 
+begin 
+open c2;
+open c3;
+
+fetch c2 into emp_rec;
+fetch c3 into dept_rec;
+dbms_output.put_line(emp_rec.last_name);
+dbms_output.put_line(dept_rec.department_name);
+
+
+close c2;
+close c3;
+end;
+
+step4
+
+declare
+cursor c2 is
+select * from employees;
+emp_rec c2%rowtype;
+cursor c3 is 
+select * from departments;
+dept_rec c3%rowtype; 
+begin 
+open c2;
+open c3;
+loop
+fetch c2 into emp_rec;
+fetch c3 into dept_rec;
+dbms_output.put_line(emp_rec.last_name);
+dbms_output.put_line(dept_rec.department_name);
+
+
+close c2;
+close c3;
+end;
+
+
+
+
+step 5
+declare
+cursor c2 is
+seect * from employees;
+emp_rec c2%rowtype;
+cursor c3 is 
+select * from departments;
+dept_rec c3%rowtype; 
+begin 
+open c2;
+open c3;
+loop
+fetch c2 into emp_rec;
+fetch c3 into dept_rec;
+dbms_output.put_line(emp_rec.last_name);
+dbms_output.put_line(dept_rec.department_name);
+exit when c2%rowcount=5;
+exit when c3%rowcount=5;
+end loop;
+close c2;
+close c3;
+end;
+
+tank 26/10/2021
+
+declare
+cursor c3 is
+select e.last_name,d.department_name from employees e,departments d
+where e.department_id=d.department_id;
+data_rec c3%rowtype;
+begin 
+open c3;
+fetch c3 into data_rec;
+dbms_output.put_line(data_rec.last_name);
+close c3;
+end;
+
+
+declare
+cursor c3 is
+select e.last_name,d.department_name from employees e,departments d
+where e.department_id=d.department_id;
+data_rec c3%rowtype;
+cursor c4 is
+select * from locations;
+loc_rec c4%rowtype;
+begin 
+open c3;
+open c4;
+loop
+fetch c3 into data_rec;
+fetch c4 into loc_rec ;
+dbms_output.put_line(data_rec.last_name);
+dbms_output.put_line('                   '||loc_rec.location_id);
+exit when c3%rowcount=21;
+exit when c4%rowcount=10;
+end loop ;
+close c3;
+close c4;
+end;
+
+declare
+cursor c1 is 
+select e.last_name,e.salary,d.department_name from employees e,departments d
+where e.department_id=d.department_id;
+data_rec c1%rowtype;
+begin 
+open c1;
+loop
+fetch c1 into data_rec;
+dbms_output.put_line('emp_name:'||data_rec.last_name||'       '||'salary:'||data_rec.salary||'      '||'dept_name:'||data_rec.department_name);
+exit when c1%rowcount=20;
+end loop;
+close c1;
+end;

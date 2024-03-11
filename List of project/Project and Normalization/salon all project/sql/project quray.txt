@@ -1,0 +1,9 @@
+project 
+
+1)select s.supplierid, p.supplierid
+from supplier s, product p
+where s.supplierid= p.supplierid 
+
+2)select s.supplierid, p.supplierid,o.orderid
+from supplier s, product p,orderDetail o
+where s.supplierid= p.supplierid and o.orderid between 1 and 16;
